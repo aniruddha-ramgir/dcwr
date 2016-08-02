@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>eDCWR</title>
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
+		<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+		<link rel="stylesheet" href="css/login.css">
+</head>
+<body>    
+<!-- Mixins-->
+<!-- Pen Title-->
+<div class="pen-title">
+  <h1>eDCWR</h1>
+</div>
+<div class="container">
+  <div class="card"></div>
+  <div class="card">
+    <h1 class="title">Login</h1>
+    <form role = form action="validate.php" method="post">
+      <div class="input-container">
+        <input type="text" name="user" required="required"/>
+        <label for="Username">Username</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input type="password" name="pass" required="required"/>
+        <label for="Password">Password</label>
+        <div class="bar"></div>
+      </div>
+      <div class="button-container">
+        <button type="submit" name="submit" ><span>Submit</span></button>
+      </div>
+      <div class="footer"><a href="#">Forgot your password?</a></div>
+    </form>
+  </div>
+</div>
+  </body>
+</html>
