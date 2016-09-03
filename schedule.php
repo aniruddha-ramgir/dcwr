@@ -15,19 +15,17 @@
     <tr class='time'>
       <th></th>
       <th>SUBJECT 1</th>
-	  <th>SUBJECT </th>
-	  <th>SUBJECT </th>
-	  <th>SUBJECT </th>
-	  <th>SUBJECT </th>
-	  <th>SUBJECT </th>
-	  <th>SUBJECT </th>
-	  <th>8SUBJECT </th>
+	  <th>SUBJECT 2</th>
+	  <th>SUBJECT 3</th>
+	  <th>SUBJECT 4</th>
+	  <th>SUBJECT 5</th>
+	  <th>SUBJECT 6</th>
+	  <th>SUBJECT 7</th>
+	  <th>SUBJECT 8</th>
     </tr>
     <?php
-		$startDate = new DateTime('-5 days');
 			$count=1;
 			while($count < 7){
-				$dateString = $startDate->format('Y-m-d');
 				$sql = $conn->query(" SELECT * FROM `schedule_data` WHERE day = '" . $count . "' and dcwr_id = " . $_SESSION['plan_id'] . " ");
 					if( !empty( $row1 = $sql->fetch_assoc() ) ){
 						echo "<tr>";
@@ -43,11 +41,10 @@
 					echo "</tr>";
 					}
 					else{
-						echo "<script type='text/javascript'>alert('Day does not exist in the database.')</script>";
+						echo "<script type='text/javascript'>alert('Does not exist in the database.')</script>";
 						break;
 					}
 				$count++;
-				$startDate = $startDate->add(new DateInterval('P1D'));
 				
 			}
 	?>

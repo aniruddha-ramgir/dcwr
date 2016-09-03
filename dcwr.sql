@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 01, 2016 at 08:12 AM
+-- Generation Time: Sep 03, 2016 at 10:27 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -147,6 +147,20 @@ CREATE TABLE `plans_subject_data` (
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `plans_subject_data`
+--
+
+INSERT INTO `plans_subject_data` (`plan_id`, `subject1`, `subject2`, `subject3`, `subject4`, `subject5`, `subject6`, `subject7`, `subject8`, `date`) VALUES
+(1, 'Cloud Computing', 'Big Data', 'Information Retrieval Systems', 'DWDM', 'lunch', 'Information Retrieval Systems', 'Big Data', 'club Activity', '2016-08-21'),
+(1, 'Design Patterns', 'Big Data', 'Information Retrieval Systems', 'Cloud Computing', 'lunch', 'Linux Programming', 'Linux Programming', 'club Activity', '2016-08-22'),
+(1, 'Big Data', 'Design Patterns', 'Cloud Computing', 'Cloud Computing', 'lunch', 'Design Patterns', 'dbms', 'club Activity', '2016-08-23'),
+(1, 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'Design Patterns', 'lunch', 'Big Data', 'Information Retrieval Systems', 'club Activity', '2016-08-24'),
+(1, 'DWDM LAB', 'DWDM LAB', 'DWDM LAB', 'Linux Programming', 'lunch', 'Cloud COmputing', 'DWDM', 'club Activity', '2016-08-25'),
+(1, 'DWDM', 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'lunch', 'Big Data', 'Cloud Computing', 'club Activity', '2016-08-26'),
+(1, 'Cloud Computing', 'DWDM', 'DWDM', 'Big Data', 'lunch', 'Cloud Computing', 'Design Patterns', 'club Activity', '2016-08-27'),
+(1, 'Cloud Computing', 'Cloud Computing', 'Information Retrieval Systems', 'Design Patterns', 'lunch', 'Linux Programming', 'Big Data', 'club Activity', '2016-08-28');
+
 -- --------------------------------------------------------
 
 --
@@ -171,7 +185,15 @@ CREATE TABLE `plans_topic_data` (
 --
 
 INSERT INTO `plans_topic_data` (`plan_id`, `subject1`, `subject2`, `subject3`, `subject4`, `subject5`, `subject6`, `subject7`, `subject8`, `date`) VALUES
-(1, 'DP', 'LP', 'CP', 'MP', 'NP', 'PP', 'HP', 'EP', '2016-07-31');
+(1, 'DP', 'LP', 'CP', 'MP', 'NP', 'PP', 'HP', 'EP', '2016-07-31'),
+(1, 'Cloud Computing', 'Big Data', 'Information Retrieval Systems', 'DWDM', 'lunch', 'Information Retrieval Systems', 'Big Data', 'club Activity', '2016-08-21'),
+(1, 'Design Patterns', 'Big Data', 'Information Retrieval Systems', 'Cloud Computing', 'lunch', 'Linux Programming', 'Linux Programming', 'club Activity', '2016-08-22'),
+(1, 'Big Data', 'Design Patterns', 'Cloud Computing', 'Cloud Computing', 'lunch', 'Design Patterns', 'dbms', 'club Activity', '2016-08-23'),
+(1, 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'Design Patterns', 'lunch', 'Big Data', 'Information Retrieval Systems', 'club Activity', '2016-08-24'),
+(1, 'DWDM LAB', 'DWDM LAB', 'DWDM LAB', 'Linux Programming', 'lunch', 'Cloud COmputing', 'DWDM', 'club Activity', '2016-08-25'),
+(1, 'DWDM', 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'lunch', 'Big Data', 'Cloud Computing', 'club Activity', '2016-08-26'),
+(1, 'Cloud Computing', 'DWDM', 'DWDM', 'Big Data', 'lunch', 'Cloud Computing', 'Design Patterns', 'club Activity', '2016-08-27'),
+(1, 'Cloud Computing', 'Cloud Computing', 'Information Retrieval Systems', 'Design Patterns', 'lunch', 'Linux Programming', 'Big Data', 'club Activity', '2016-08-28');
 
 -- --------------------------------------------------------
 
@@ -233,14 +255,14 @@ CREATE TABLE `reports_subject_data` (
 --
 
 INSERT INTO `reports_subject_data` (`dcwr_id`, `date`, `1H`, `2H`, `3H`, `4H`, `5H`, `6H`, `7H`, `8H`) VALUES
-(1, '2016-07-23', 'Design Patterns', 'Big Data', 'Information Retrieval Systems', 'Cloud Computing', 'lunch', 'Linux Programming', 'Linux Programming', 'club Activity'),
-(1, '2016-07-24', 'Big Data', 'Design Patterns', 'Cloud Computing', 'Cloud Computing', 'lunch', 'Design Patterns', 'dbms', 'club Activity'),
-(1, '2016-07-25', 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'Design Patterns', 'lunch', 'Big Data', 'Information Retrieval Systems', 'club Activity'),
-(1, '2016-07-26', 'Cloud Computing', 'DWDM', 'DWDM', 'Big Data', 'lunch', 'Cloud Computing', 'Design Patterns', 'club Activity'),
-(1, '2016-07-27', 'Cloud Computing', 'Cloud Computing', 'Information Retrieval Systems', 'Design Patterns', 'lunch', 'Linux Programming', 'Big Data', 'club Activity'),
-(1, '2016-07-28', 'DWDM', 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'lunch', 'Big Data', 'Cloud Computing', 'club Activity'),
-(1, '2016-07-29', 'DWDM LAB', 'DWDM LAB', 'DWDM LAB', 'Linux Programming', 'lunch', 'Cloud COmputing', 'DWDM', 'club Activity'),
-(1, '2016-08-30', 'Cloud Computing', 'Big Data', 'Information Retrieval Systems', 'DWDM', 'lunch', 'Information Retrieval Systems', 'Big Data', 'club Activity');
+(1, '2016-08-21', 'Cloud Computing', 'Big Data', 'Information Retrieval Systems', 'DWDM', 'lunch', 'Information Retrieval Systems', 'Big Data', 'club Activity'),
+(1, '2016-08-22', 'Design Patterns', 'Big Data', 'Information Retrieval Systems', 'Cloud Computing', 'lunch', 'Linux Programming', 'Linux Programming', 'club Activity'),
+(1, '2016-08-23', 'Big Data', 'Design Patterns', 'Cloud Computing', 'Cloud Computing', 'lunch', 'Design Patterns', 'dbms', 'club Activity'),
+(1, '2016-08-24', 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'Design Patterns', 'lunch', 'Big Data', 'Information Retrieval Systems', 'club Activity'),
+(1, '2016-08-25', 'DWDM LAB', 'DWDM LAB', 'DWDM LAB', 'Linux Programming', 'lunch', 'Cloud COmputing', 'DWDM', 'club Activity'),
+(1, '2016-08-26', 'DWDM', 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'lunch', 'Big Data', 'Cloud Computing', 'club Activity'),
+(1, '2016-08-27', 'Cloud Computing', 'DWDM', 'DWDM', 'Big Data', 'lunch', 'Cloud Computing', 'Design Patterns', 'club Activity'),
+(1, '2016-08-28', 'Cloud Computing', 'Cloud Computing', 'Information Retrieval Systems', 'Design Patterns', 'lunch', 'Linux Programming', 'Big Data', 'club Activity');
 
 -- --------------------------------------------------------
 
@@ -269,14 +291,14 @@ CREATE TABLE `reports_topic_data` (
 --
 
 INSERT INTO `reports_topic_data` (`dcwr_id`, `date`, `1H`, `2H`, `3H`, `4H`, `5H`, `6H`, `7H`, `8H`, `CR`, `Incharge`, `Admin`) VALUES
-(1, '2016-07-23', 'Design Patterns', 'Big Data', 'Information Retrieval Systems', 'Cloud Computing', 'lunch', 'Linux Programming', 'Linux Programming', 'club Activity', 0, 0, 0),
-(1, '2016-07-24', 'Big Data', 'Design Patterns', 'Cloud Computing', 'Cloud Computing', 'lunch', 'Design Patterns', 'dbms', 'club Activity', 0, 0, 0),
-(1, '2016-07-25', 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'Design Patterns', 'lunch', 'Big Data', 'Information Retrieval Systems', 'club Activity', 0, 0, 0),
-(1, '2016-07-26', 'Cloud Computing', 'DWDM', 'DWDM', 'Big Data', 'lunch', 'Cloud Computing', 'Design Patterns', 'club Activity', 0, 0, 0),
-(1, '2016-07-27', 'Cloud Computing', 'Cloud Computing', 'Information Retrieval Systems', 'Design Patterns', 'lunch', 'Linux Programming', 'Big Data', 'club Activity', 0, 0, 0),
-(1, '2016-07-28', 'DWDM', 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'lunch', 'Big Data', 'Cloud Computing', 'club Activity', 0, 0, 0),
-(1, '2016-07-29', 'DWDM LAB', 'DWDM LAB', 'DWDM LAB', 'Linux Programming', 'lunch', 'Cloud COmputing', 'DWDM', 'club Activity', 0, 0, 0),
-(1, '2016-08-30', 'Cloud Computing', 'Big Data', 'Information Retrieval Systems', 'DWDM', 'lunch', 'Information Retrieval Systems', 'Big Data', 'club Activity', 0, 0, 0);
+(1, '2016-08-21', 'Design Patterns', 'Big Data', 'Information Retrieval Systems', 'Cloud Computing', 'lunch', 'Linux Programming', 'Linux Programming', 'club Activity', 0, 0, 0),
+(1, '2016-08-22', 'Big Data', 'Design Patterns', 'Cloud Computing', 'Cloud Computing', 'lunch', 'Design Patterns', 'dbms', 'club Activity', 0, 0, 0),
+(1, '2016-08-23', 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'Design Patterns', 'lunch', 'Big Data', 'Information Retrieval Systems', 'club Activity', 0, 0, 0),
+(1, '2016-08-24', 'Cloud Computing', 'DWDM', 'DWDM', 'Big Data', 'lunch', 'Cloud Computing', 'Design Patterns', 'club Activity', 0, 0, 0),
+(1, '2016-08-25', 'Cloud Computing', 'Cloud Computing', 'Information Retrieval Systems', 'Design Patterns', 'lunch', 'Linux Programming', 'Big Data', 'club Activity', 0, 0, 0),
+(1, '2016-08-26', 'DWDM', 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'lunch', 'Big Data', 'Cloud Computing', 'club Activity', 0, 0, 0),
+(1, '2016-08-27', 'DWDM LAB', 'DWDM LAB', 'DWDM LAB', 'Linux Programming', 'lunch', 'Cloud COmputing', 'DWDM', 'club Activity', 0, 0, 0),
+(1, '2016-09-28', 'Cloud Computing', 'Big Data', 'Information Retrieval Systems', 'DWDM', 'lunch', 'Information Retrieval Systems', 'Big Data', 'club Activity', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -331,6 +353,33 @@ CREATE TABLE `sections` (
 INSERT INTO `sections` (`section_id`, `dept_id`, `name`, `batch`) VALUES
 (1, 1, 'C', 2017),
 (2, 2, 'A', 2017);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subject_list`
+--
+
+CREATE TABLE `subject_list` (
+  `plan_id` int(15) NOT NULL,
+  `SUBJECT1` text NOT NULL,
+  `SUBJECT2` text NOT NULL,
+  `SUBJECT3` text NOT NULL,
+  `SUBJECT4` text NOT NULL,
+  `SUBJECT5` text NOT NULL,
+  `SUBJECT6` text NOT NULL,
+  `SUBJECT7` text NOT NULL,
+  `SUBJECT8` text,
+  `SUBJECT9` text,
+  `SUBJECT10` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `subject_list`
+--
+
+INSERT INTO `subject_list` (`plan_id`, `SUBJECT1`, `SUBJECT2`, `SUBJECT3`, `SUBJECT4`, `SUBJECT5`, `SUBJECT6`, `SUBJECT7`, `SUBJECT8`, `SUBJECT9`, `SUBJECT10`) VALUES
+(1, 'Design Patterns', 'ELECTIVE2', 'ELECTIVE1', 'DWDM', 'Cloud Computing', 'Linux Programming', 'LAB', NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -422,6 +471,12 @@ ALTER TABLE `schedule_data`
 ALTER TABLE `sections`
   ADD PRIMARY KEY (`section_id`,`dept_id`),
   ADD KEY `dept_id` (`dept_id`);
+
+--
+-- Indexes for table `subject_list`
+--
+ALTER TABLE `subject_list`
+  ADD PRIMARY KEY (`plan_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -525,6 +580,12 @@ ALTER TABLE `schedule_data`
 --
 ALTER TABLE `sections`
   ADD CONSTRAINT `sections_ibfk_1` FOREIGN KEY (`dept_id`) REFERENCES `departments` (`dept_id`);
+
+--
+-- Constraints for table `subject_list`
+--
+ALTER TABLE `subject_list`
+  ADD CONSTRAINT `subject_list_ibfk_1` FOREIGN KEY (`plan_id`) REFERENCES `plans` (`plan_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

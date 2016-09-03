@@ -147,7 +147,7 @@
 			<th></th>
 			<th>Initial Date</th>
 			<th>DCWR</th>
-			<th>GRAPH</th>
+			<th>ANALYSIS</th>
 			<th>LESSON PLAN</th>
 			<th>SCHEDULE</th>
 			<th>SUBMIT</th>

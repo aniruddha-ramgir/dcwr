@@ -71,24 +71,42 @@
 	  <th>SUBMIT</th>
     </tr>
 	 <!-- Display rows for 8 hours. -->
-		<td class='text'><input type="date" style="font-size: 1.3rem" name="start_date" min="2016-06-02" max="2016-12-20"></td> 
-		<th><div class="dropdown">
-			<button class="dropbtn green">Dropdown</button>
-				<div class="dropdown-content">
-				<a href="#">Hour 1</a> <!-- DESC then, print ROW[1H],ROW[2] and so on -->
-				<a href="#">Hour 2</a>
-				<a href="#">Hour 3</a>
-				<a href="#">Hour 4</a>
-				<a href="#">Hour 5</a>
-				<a href="#">Hour 6</a>
-				<a href="#">Hour 7</a>
-				<a href="#">Hour 8</a>
-				</div>
-			</div>
+		<td class='text'><input class="select-style" type="date" style=" font-size: 1.3rem" name="start_date" min="2016-06-02" max="2016-12-20"></td> 
+		<th>
+			<select class="select-style" name="hour">
+				<option value="1H">Hour 1</option>
+				<option value="2H">Hour 2</option>
+				<option value="3H">Hour 3</option>
+				<option value="4H">Hour 4</option>
+				<option value="5H">Hour 5</option>
+				<option value="6H">Hour 6</option>
+				<option value="7H">Hour 7</option>
+				<option value="8H">Hour 8</option>
+			</select>
 		</th>
-		<th class='text'>Event</th>
-		<th class='text'>Subject</th>
-		<th class='text'>Topic</th>
-		<td class="text red"><a href="#" >SUBMIT</a></td>
+		<th class='text'>  <!-- Event. -->
+			<select class="select-style" name="event">
+				<option value="E1">On track</option>
+				<option value="E2">Subsituted</option>
+				<option value="E3">Delayed</option>
+			</select>
+		</th>
+	 	
+		<?php
+				$sql = $conn->query(" SELECT * FROM `subject_list` WHERE plan_id = " . $_SESSION['plan_id'] . " "); //GET ALL
+					if( !empty( $row1 = $sql->fetch_assoc() ) ){
+						echo "<th class='text' >"; 
+							echo '<select class="select-style" name="event">';
+								for($count=1;$count<10;$count++){ //Go through all subjects
+									if(($sub = $row1['SUBJECT'.$count.''])!=NULL){  //display only if its not NULL
+									echo '<option value="S' .$count.'">' . ($sub) . '</option>'; //$row1['SUBJECT'. $count . '']
+									}
+								}
+							echo "</select>";
+					echo "</th>";
+					}
+		?>
+		<th class='text' contenteditable='true'></th>
+		<td class="text green"><a href="#" >SUBMIT</a></td>
 	</table>
 </div>

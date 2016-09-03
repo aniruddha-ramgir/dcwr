@@ -15,13 +15,13 @@
     <tr class='time'>
       <th></th>
       <th>SUBJECT 1</th>
-	  <th>SUBJECT </th>
-	  <th>SUBJECT </th>
-	  <th>SUBJECT </th>
-	  <th>SUBJECT </th>
-	  <th>SUBJECT </th>
-	  <th>SUBJECT </th>
-	  <th>8SUBJECT </th>
+	  <th>SUBJECT 2</th>
+	  <th>SUBJECT 3</th>
+	  <th>SUBJECT 4</th>
+	  <th>SUBJECT 5</th>
+	  <th>SUBJECT 6</th>
+	  <th>SUBJECT 7</th>
+	  <th>SUBJECT 8</th>
     </tr>
     <?php
 		$startDate = new DateTime('-5 days');
