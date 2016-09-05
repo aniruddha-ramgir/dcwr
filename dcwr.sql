@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 03, 2016 at 10:27 AM
+-- Generation Time: Sep 05, 2016 at 06:01 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -152,14 +152,14 @@ CREATE TABLE `plans_subject_data` (
 --
 
 INSERT INTO `plans_subject_data` (`plan_id`, `subject1`, `subject2`, `subject3`, `subject4`, `subject5`, `subject6`, `subject7`, `subject8`, `date`) VALUES
-(1, 'Cloud Computing', 'Big Data', 'Information Retrieval Systems', 'DWDM', 'lunch', 'Information Retrieval Systems', 'Big Data', 'club Activity', '2016-08-21'),
-(1, 'Design Patterns', 'Big Data', 'Information Retrieval Systems', 'Cloud Computing', 'lunch', 'Linux Programming', 'Linux Programming', 'club Activity', '2016-08-22'),
-(1, 'Big Data', 'Design Patterns', 'Cloud Computing', 'Cloud Computing', 'lunch', 'Design Patterns', 'dbms', 'club Activity', '2016-08-23'),
-(1, 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'Design Patterns', 'lunch', 'Big Data', 'Information Retrieval Systems', 'club Activity', '2016-08-24'),
-(1, 'DWDM LAB', 'DWDM LAB', 'DWDM LAB', 'Linux Programming', 'lunch', 'Cloud COmputing', 'DWDM', 'club Activity', '2016-08-25'),
-(1, 'DWDM', 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'lunch', 'Big Data', 'Cloud Computing', 'club Activity', '2016-08-26'),
-(1, 'Cloud Computing', 'DWDM', 'DWDM', 'Big Data', 'lunch', 'Cloud Computing', 'Design Patterns', 'club Activity', '2016-08-27'),
-(1, 'Cloud Computing', 'Cloud Computing', 'Information Retrieval Systems', 'Design Patterns', 'lunch', 'Linux Programming', 'Big Data', 'club Activity', '2016-08-28');
+(1, 'Cloud Computing', 'Cloud Computing', 'Information Retrieval Systems', 'Design Patterns', 'lunch', 'Linux Programming', 'Big Data', 'club Activity', '2016-08-29'),
+(1, 'Cloud Computing', 'DWDM', 'DWDM', 'Big Data', 'lunch', 'Cloud Computing', 'Design Patterns', 'club Activity', '2016-08-30'),
+(1, 'DWDM', 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'lunch', 'Big Data', 'Cloud Computing', 'club Activity', '2016-08-31'),
+(1, 'DWDM LAB', 'DWDM LAB', 'DWDM LAB', 'Linux Programming', 'lunch', 'Cloud COmputing', 'DWDM', 'club Activity', '2016-09-01'),
+(1, 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'Design Patterns', 'lunch', 'Big Data', 'Information Retrieval Systems', 'club Activity', '2016-09-02'),
+(1, 'Big Data', 'Design Patterns', 'Cloud Computing', 'Cloud Computing', 'lunch', 'Design Patterns', 'dbms', 'club Activity', '2016-09-03'),
+(1, 'Cloud Computing', 'Big Data', 'Information Retrieval Systems', 'DWDM', 'lunch', 'Information Retrieval Systems', 'Big Data', 'club Activity', '2016-09-05'),
+(1, 'Design Patterns', 'Big Data', 'Information Retrieval Systems', 'Cloud Computing', 'lunch', 'Linux Programming', 'Linux Programming', 'club Activity', '2016-09-06');
 
 -- --------------------------------------------------------
 
@@ -185,15 +185,15 @@ CREATE TABLE `plans_topic_data` (
 --
 
 INSERT INTO `plans_topic_data` (`plan_id`, `subject1`, `subject2`, `subject3`, `subject4`, `subject5`, `subject6`, `subject7`, `subject8`, `date`) VALUES
-(1, 'DP', 'LP', 'CP', 'MP', 'NP', 'PP', 'HP', 'EP', '2016-07-31'),
-(1, 'Cloud Computing', 'Big Data', 'Information Retrieval Systems', 'DWDM', 'lunch', 'Information Retrieval Systems', 'Big Data', 'club Activity', '2016-08-21'),
-(1, 'Design Patterns', 'Big Data', 'Information Retrieval Systems', 'Cloud Computing', 'lunch', 'Linux Programming', 'Linux Programming', 'club Activity', '2016-08-22'),
-(1, 'Big Data', 'Design Patterns', 'Cloud Computing', 'Cloud Computing', 'lunch', 'Design Patterns', 'dbms', 'club Activity', '2016-08-23'),
-(1, 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'Design Patterns', 'lunch', 'Big Data', 'Information Retrieval Systems', 'club Activity', '2016-08-24'),
-(1, 'DWDM LAB', 'DWDM LAB', 'DWDM LAB', 'Linux Programming', 'lunch', 'Cloud COmputing', 'DWDM', 'club Activity', '2016-08-25'),
-(1, 'DWDM', 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'lunch', 'Big Data', 'Cloud Computing', 'club Activity', '2016-08-26'),
-(1, 'Cloud Computing', 'DWDM', 'DWDM', 'Big Data', 'lunch', 'Cloud Computing', 'Design Patterns', 'club Activity', '2016-08-27'),
-(1, 'Cloud Computing', 'Cloud Computing', 'Information Retrieval Systems', 'Design Patterns', 'lunch', 'Linux Programming', 'Big Data', 'club Activity', '2016-08-28');
+(1, 'Cloud Computing', 'Cloud Computing', 'Information Retrieval Systems', 'Design Patterns', 'lunch', 'Linux Programming', 'Big Data', 'club Activity', '2016-08-28'),
+(1, 'Cloud Computing', 'DWDM', 'DWDM', 'Big Data', 'lunch', 'Cloud Computing', 'Design Patterns', 'club Activity', '2016-08-29'),
+(1, 'DWDM', 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'lunch', 'Big Data', 'Cloud Computing', 'club Activity', '2016-08-30'),
+(1, 'DWDM LAB', 'DWDM LAB', 'DWDM LAB', 'Linux Programming', 'lunch', 'Cloud COmputing', 'DWDM', 'club Activity', '2016-08-31'),
+(1, 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'Design Patterns', 'lunch', 'Big Data', 'Information Retrieval Systems', 'club Activity', '2016-09-01'),
+(1, 'Big Data', 'Design Patterns', 'Cloud Computing', 'Cloud Computing', 'lunch', 'Design Patterns', 'dbms', 'club Activity', '2016-09-02'),
+(1, 'Design Patterns', 'Big Data', 'Information Retrieval Systems', 'Cloud Computing', 'lunch', 'Linux Programming', 'Linux Programming', 'club Activity', '2016-09-03'),
+(1, 'DP', 'LP', 'CP', 'MP', 'NP', 'PP', 'HP', 'EP', '2016-09-05'),
+(1, 'Cloud Computing', 'Big Data', 'Information Retrieval Systems', 'DWDM', 'lunch', 'Information Retrieval Systems', 'Big Data', 'club Activity', '2016-09-06');
 
 -- --------------------------------------------------------
 
@@ -255,14 +255,14 @@ CREATE TABLE `reports_subject_data` (
 --
 
 INSERT INTO `reports_subject_data` (`dcwr_id`, `date`, `1H`, `2H`, `3H`, `4H`, `5H`, `6H`, `7H`, `8H`) VALUES
-(1, '2016-08-21', 'Cloud Computing', 'Big Data', 'Information Retrieval Systems', 'DWDM', 'lunch', 'Information Retrieval Systems', 'Big Data', 'club Activity'),
-(1, '2016-08-22', 'Design Patterns', 'Big Data', 'Information Retrieval Systems', 'Cloud Computing', 'lunch', 'Linux Programming', 'Linux Programming', 'club Activity'),
-(1, '2016-08-23', 'Big Data', 'Design Patterns', 'Cloud Computing', 'Cloud Computing', 'lunch', 'Design Patterns', 'dbms', 'club Activity'),
-(1, '2016-08-24', 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'Design Patterns', 'lunch', 'Big Data', 'Information Retrieval Systems', 'club Activity'),
-(1, '2016-08-25', 'DWDM LAB', 'DWDM LAB', 'DWDM LAB', 'Linux Programming', 'lunch', 'Cloud COmputing', 'DWDM', 'club Activity'),
-(1, '2016-08-26', 'DWDM', 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'lunch', 'Big Data', 'Cloud Computing', 'club Activity'),
-(1, '2016-08-27', 'Cloud Computing', 'DWDM', 'DWDM', 'Big Data', 'lunch', 'Cloud Computing', 'Design Patterns', 'club Activity'),
-(1, '2016-08-28', 'Cloud Computing', 'Cloud Computing', 'Information Retrieval Systems', 'Design Patterns', 'lunch', 'Linux Programming', 'Big Data', 'club Activity');
+(1, '2016-08-29', 'Cloud Computing', 'Cloud Computing', 'Information Retrieval Systems', 'Design Patterns', 'lunch', 'Linux Programming', 'Big Data', 'club Activity'),
+(1, '2016-08-30', 'Cloud Computing', 'DWDM', 'DWDM', 'Big Data', 'lunch', 'Cloud Computing', 'Design Patterns', 'club Activity'),
+(1, '2016-08-31', 'DWDM', 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'lunch', 'Big Data', 'Cloud Computing', 'club Activity'),
+(1, '2016-09-01', 'DWDM LAB', 'DWDM LAB', 'DWDM LAB', 'Linux Programming', 'lunch', 'Cloud COmputing', 'DWDM', 'club Activity'),
+(1, '2016-09-02', 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'Design Patterns', 'lunch', 'Big Data', 'Information Retrieval Systems', 'club Activity'),
+(1, '2016-09-03', 'Cloud Computing', 'Big Data', 'Information Retrieval Systems', 'DWDM', 'lunch', 'Information Retrieval Systems', 'Big Data', 'club Activity'),
+(1, '2016-09-04', 'Design Patterns', 'Big Data', 'Information Retrieval Systems', 'Cloud Computing', 'lunch', 'Linux Programming', 'Linux Programming', 'club Activity'),
+(1, '2016-09-05', 'Big Data', 'Design Patterns', 'Cloud Computing', 'Cloud Computing', 'lunch', 'Design Patterns', 'dbms', 'club Activity');
 
 -- --------------------------------------------------------
 
@@ -291,14 +291,14 @@ CREATE TABLE `reports_topic_data` (
 --
 
 INSERT INTO `reports_topic_data` (`dcwr_id`, `date`, `1H`, `2H`, `3H`, `4H`, `5H`, `6H`, `7H`, `8H`, `CR`, `Incharge`, `Admin`) VALUES
-(1, '2016-08-21', 'Design Patterns', 'Big Data', 'Information Retrieval Systems', 'Cloud Computing', 'lunch', 'Linux Programming', 'Linux Programming', 'club Activity', 0, 0, 0),
-(1, '2016-08-22', 'Big Data', 'Design Patterns', 'Cloud Computing', 'Cloud Computing', 'lunch', 'Design Patterns', 'dbms', 'club Activity', 0, 0, 0),
-(1, '2016-08-23', 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'Design Patterns', 'lunch', 'Big Data', 'Information Retrieval Systems', 'club Activity', 0, 0, 0),
-(1, '2016-08-24', 'Cloud Computing', 'DWDM', 'DWDM', 'Big Data', 'lunch', 'Cloud Computing', 'Design Patterns', 'club Activity', 0, 0, 0),
-(1, '2016-08-25', 'Cloud Computing', 'Cloud Computing', 'Information Retrieval Systems', 'Design Patterns', 'lunch', 'Linux Programming', 'Big Data', 'club Activity', 0, 0, 0),
-(1, '2016-08-26', 'DWDM', 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'lunch', 'Big Data', 'Cloud Computing', 'club Activity', 0, 0, 0),
-(1, '2016-08-27', 'DWDM LAB', 'DWDM LAB', 'DWDM LAB', 'Linux Programming', 'lunch', 'Cloud COmputing', 'DWDM', 'club Activity', 0, 0, 0),
-(1, '2016-09-28', 'Cloud Computing', 'Big Data', 'Information Retrieval Systems', 'DWDM', 'lunch', 'Information Retrieval Systems', 'Big Data', 'club Activity', 0, 0, 0);
+(1, '2016-08-29', 'Design Patterns', 'Big Data', 'Information Retrieval Systems', 'Cloud Computing', 'lunch', 'Linux Programming', 'Linux Programming', 'club Activity', 0, 0, 0),
+(1, '2016-08-30', 'Big Data', 'Design Patterns', 'Cloud Computing', 'Cloud Computing', 'lunch', 'Design Patterns', 'dbms', 'club Activity', 0, 0, 0),
+(1, '2016-08-31', 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'Design Patterns', 'lunch', 'Big Data', 'Information Retrieval Systems', 'club Activity', 0, 0, 0),
+(1, '2016-09-01', 'Cloud Computing', 'DWDM', 'DWDM', 'Big Data', 'lunch', 'Cloud Computing', 'Design Patterns', 'club Activity', 0, 0, 0),
+(1, '2016-09-02', 'Cloud Computing', 'Cloud Computing', 'Information Retrieval Systems', 'Design Patterns', 'lunch', 'Linux Programming', 'Big Data', 'club Activity', 0, 0, 0),
+(1, '2016-09-03', 'DWDM', 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'lunch', 'Big Data', 'Cloud Computing', 'club Activity', 0, 0, 0),
+(1, '2016-09-04', 'DWDM LAB', 'DWDM LAB', 'DWDM LAB', 'Linux Programming', 'lunch', 'Cloud COmputing', 'DWDM', 'club Activity', 0, 0, 0),
+(1, '2016-09-05', 'Cloud Computing', 'Big Data', 'Information Retrieval Systems', 'DWDM', 'lunch', 'Information Retrieval Systems', 'Big Data', 'club Activity', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -501,7 +501,7 @@ ALTER TABLE `plans`
 -- AUTO_INCREMENT for table `reports`
 --
 ALTER TABLE `reports`
-  MODIFY `dcwr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `dcwr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `sections`
 --

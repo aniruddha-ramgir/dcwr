@@ -1,3 +1,37 @@
+<?php
+	function validate(){
+		include("connection.php");
+		$sql= " SELECT * FROM login where user_name = '$_POST[user]' AND pass = '$_POST[pass]'";
+		$result = $conn->query($sql);
+		if(!empty($row = $result->fetch_assoc())){
+			$_SESSION['logged_in']=1;
+			$_SESSION['user_id'] = $row['user_id'];
+			if($row['type_id']=='A'){
+				header('Location: admin_info.php');
+				exit();
+			}
+			else if($row['type_id']=='C'){
+				header('Location: incharge_process.php');
+				exit();
+			}
+			else{
+				header('Location: incharge_process.php');
+				exit();
+			}
+		}
+		else {
+			//session_unset();
+			//session_destroy(); 
+			$conn->close();
+			die();
+			echo "<script type='text/javascript'>alert('Incorrect Username and/or password')</script>";
+		}
+	}
+	if(isset($_POST['submit']))
+		{
+			validate();
+		} 
+?>
 <!DOCTYPE html>
 <html >
   <head>
@@ -18,7 +52,7 @@
   <div class="card"></div>
   <div class="card">
     <h1 class="title">Login</h1>
-    <form role = form action="validate.php" method="post">
+    <form role = form action="login.php" method="post">
       <div class="input-container">
         <input type="text" name="user" required="required"/>
         <label for="Username">Username</label>

@@ -246,3 +246,43 @@ a:link, a:visited {
 .select-style select:focus {
     outline: none;
 }
+.button1 {
+    background-color: #2ecc71;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+	font-weight: 300;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.button2 {
+    background-color: #2ecc71;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+	font-weight: 300;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.textBox{
+    background: #eff0f1; 
+    border: none; 
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px; 
+    box-shadow: 0 0 5px #DDD inset; 
+    color: #666; 
+    outline: none; 
+    height:55px; 
+    width: 230x; 
+    display: inline-block;
+    font-size: 20px;
+	font-weight: 300;
+   } 

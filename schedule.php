@@ -1,11 +1,12 @@
 <?php
 	include("connection.php");
+	include("logged_in.php");
 ?> 
 <!DOCTYPE html>
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>Daily Class Work Report</title>
+    <title>Schedule</title>
         <link rel="stylesheet" href="css/home.css">
   </head>
   <body>
@@ -56,7 +57,7 @@
 			<th>e-DCWR</th>
 		</tr>
 		<tr>
-			<td class="text green" ><a href="home.php" >Go back</a></td>
+			<td class="text green" ><a href="javascript:history.go(-1)" >Go back</a></td> <!-- should go back to actual previous page -->
 		</tr>
 	</table>
   </div>

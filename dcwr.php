@@ -35,19 +35,19 @@
 		$ErrorCount=0; 
 		while($count < 6){
 			$dateString = $startDate->format('Y-m-d'); //Dont forget to change reports to plans. 
-			$sql1 = $conn->query(" SELECT * FROM `plans_topic_data` WHERE date = '" . $dateString . "' and plan_id = " . $_SESSION['plan_id'] . " ");
-			$sql2 = $conn->query(" SELECT * FROM `plans_subject_data` WHERE date = '" . $dateString . "' and plan_id = " . $_SESSION['plan_id'] . " ");
+			$sql1 = $conn->query(" SELECT * FROM `reports_topic_data` WHERE date = '" . $dateString . "' and dcwr_id = " . $_SESSION['dcwr_id'] . " ");
+				$sql2 = $conn->query(" SELECT * FROM `reports_subject_data` WHERE date = '" . $dateString . "' and dcwr_id = " . $_SESSION['dcwr_id'] . " ");
 				if( !empty( $row1 = $sql1->fetch_assoc() ) & !empty( $row2 = $sql2->fetch_assoc() ) ){
 					echo "<tr>";
-						echo "<td class='days'>".$startDate->format("D"). "</td>"; //add tooltips
-						echo "<td class='info ' data-tooltip=' ".($row2['subject1'])." '>".($row1['subject1'])."</td>";
-						echo "<td class='info ' data-tooltip=' ".($row2['subject2'])." '>".($row1['subject2'])."</td>";
-						echo "<td class='info ' data-tooltip=' ".($row2['subject3'])." '>".($row1['subject3'])."</td>";
-						echo "<td class='info ' data-tooltip=' ".($row2['subject4'])." '>".($row1['subject4'])."</td>";
-						echo "<td class='info ' data-tooltip=' ".($row2['subject5'])." '>".($row1['subject5'])."</td>";
-						echo "<td class='info ' data-tooltip=' ".($row2['subject6'])." '>".($row1['subject6'])."</td>";
-						echo "<td class='info ' data-tooltip=' ".($row2['subject7'])." '>".($row1['subject7'])."</td>";
-						echo "<td class='info ' data-tooltip=' ".($row2['subject8'])." '>".($row1['subject8'])."</td>";
+						echo "<td class='days '>".$startDate->format("D"). "</td>"; //add tooltips
+						echo "<td class='info ' data-tooltip=' ".($row2['1H'])." '>".($row1['1H'])."</td>";
+						echo "<td class='info ' data-tooltip=' ".($row2['2H'])." '>".($row1['2H'])."</td>";
+						echo "<td class='info ' data-tooltip=' ".($row2['3H'])." '>".($row1['3H'])."</td>";
+						echo "<td class='info ' data-tooltip=' ".($row2['4H'])." '>".($row1['4H'])."</td>";
+						echo "<td class='info ' data-tooltip=' ".($row2['5H'])." '>".($row1['5H'])."</td>";
+						echo "<td class='info ' data-tooltip=' ".($row2['6H'])." '>".($row1['6H'])."</td>";
+						echo "<td class='info ' data-tooltip=' ".($row2['7H'])." '>".($row1['7H'])."</td>";
+						echo "<td class='info ' data-tooltip=' ".($row2['8H'])." '>".($row1['8H'])."</td>";
 				echo "</tr>";
 				}
 				else if($ErrorCount<1){

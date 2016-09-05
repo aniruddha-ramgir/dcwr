@@ -1,27 +1,23 @@
 <?php
 	include("connection.php");
+	include("logged_in.php");
 	$id=$_SESSION['user_id'];
-	$login  = 'SELECT * FROM login where user_id = '. $_SESSION['user_id']. ' ';
-	$result = $conn->query($login);
+	$result = $conn->query('SELECT * FROM login where user_id = '. $_SESSION['user_id']. ' ');
 	if(!empty($row = $result->fetch_assoc())){
 		$name = $row['name'];
-		$section = 'SELECT * FROM sections WHERE section_id=' . $_SESSION['section_id'] . ' ';
-		$dept = 'SELECT * FROM departments WHERE dept_id=' . $_SESSION['dept_id'] . ' ';
-		$reports = ' SELECT * FROM login WHERE user_id = (SELECT mentor_id FROM reports WHERE dcwr_id=' . $_SESSION['dcwr_id'] . ')';
-		$plans 	= ' SELECT * FROM login WHERE user_id = (SELECT admin_id FROM plans WHERE plan_id=' . $_SESSION['plan_id'] . ')';
-		$result = $conn->query($section);
+		$result = $conn->query('SELECT * FROM sections WHERE section_id=' . $_SESSION['section_id'] . ' ');
 		if(!empty($row = $result->fetch_assoc())){
 			$section = $row['name'];
 		}
-		$result = $conn->query($dept);
+		$result = $conn->query('SELECT * FROM departments WHERE dept_id=' . $_SESSION['dept_id'] . ' ');
 		if(!empty($row = $result->fetch_assoc())){
 			$dept = $row['name'];
 		}
-		$result = $conn->query($reports);
+		$result = $conn->query(' SELECT * FROM login WHERE user_id = (SELECT mentor_id FROM reports WHERE dcwr_id=' . $_SESSION['dcwr_id'] . ')');
 		if(!empty($row = $result->fetch_assoc())){
 			$reports = $row['name'];
 		}
-		$result = $conn->query($plans);
+		$result = $conn->query(' SELECT * FROM login WHERE user_id = (SELECT admin_id FROM plans WHERE plan_id=' . $_SESSION['plan_id'] . ')');
 		if(!empty($row = $result->fetch_assoc())){
 			$plans = $row['name'];
 		}
@@ -75,19 +71,23 @@
 	  <th>INCLUDE</th>
     </tr>
     <?php
-		//$index= " SELECT * FROM `" . $_SESSION['dcwr_id'] . "` WHERE date = '" . date("Y-m-d") . "' ";  //get current date and nearest monday . And find its index.
-		$startDate = new DateTime('-5 days');
+		if(isset($_GET['start_date'])){							 //Checks for Manually selected date
+			$startDate = new DateTime($_GET['start_date']);		 //WORKS.
+		}
+		else{ 													//default --- begins at -7 days
+			$startDate = new DateTime('-7 days'); 
+		}
 			$i=1;
 			$count=0;
-			while($count < 7){
-				//$sql = " SELECT * FROM `" . $_SESSION['dcwr_id'] . "` WHERE `index` = '" . $i . "' ";
+			$ErrorCount=0;
+			while($count < 6){
 				$dateString = $startDate->format('Y-m-d');
 				$sql1 = $conn->query(" SELECT * FROM `reports_topic_data` WHERE date = '" . $dateString . "' and dcwr_id = " . $_SESSION['dcwr_id'] . " ");
 				$sql2 = $conn->query(" SELECT * FROM `reports_subject_data` WHERE date = '" . $dateString . "' and dcwr_id = " . $_SESSION['dcwr_id'] . " ");
-			if( !empty( $row1 = $sql1->fetch_assoc() ) | !empty( $row2 = $sql2->fetch_assoc() ) ){
+				if( !empty( $row1 = $sql1->fetch_assoc() ) | !empty( $row2 = $sql2->fetch_assoc() ) ){
 						echo "<tr>";
-						if( !($row1['CR']==0) ){
-							echo "<td class='days'>".$startDate->format("D"). "</td>";
+						if( !($row1['Admin']==0) ){
+							echo "<td class='days ' >".$startDate->format("D"). "</td>";
 							echo "<td class='info ' data-tooltip=' ".($row2['1H'])." '>".($row1['1H'])."</td>";
 							echo "<td class='info ' data-tooltip=' ".($row2['2H'])." '>".($row1['2H'])."</td>";
 							echo "<td class='info ' data-tooltip=' ".($row2['3H'])." '>".($row1['3H'])."</td>";
@@ -125,22 +125,24 @@
 					echo "</tr>";
 					$i=$i+1;
 					}
+					else if($ErrorCount<1){
+						//echo "<script type='text/javascript'>alert('Date ". $dateString ." does not exist in the database.')</script>";
+						$startDate = $startDate->add(new DateInterval('P1D'));
+						$ErrorCount++;
+						continue;
+					}
 					else{
-						echo "<script type='text/javascript'>alert('". $dateString ." does not exist in the database.')</script>";
+						echo "<script type='text/javascript'>alert('Fetching certain data has failed. (Holidays/Missing data)')</script>";
 						break;
 					}
 				$count++;
 				$startDate = $startDate->add(new DateInterval('P1D'));
-				$dateString = $startDate->format('Y-m-d');
 				
 			}
-		//}
-		//else{
-			//echo "<script type='text/javascript'>alert('Date does not exist in the database.')</script>";
-		//}
 	?>
   </table>
 </div>
+<form role = form method="get" action="home.php">
  <div>
 	<table class='options' border='0' cellpadding='5' cellspacing='0'>
 		<tr class='time'>
@@ -155,7 +157,7 @@
 		<tr>
 			<td class='days'></td>
 			<td class='text'><input type="date" style="font-size: 1.3rem" name="start_date" min="2016-06-02" max="2016-12-20"></td> 
-			<td class="text green" ><a href="#" >UPDATE</a></td>
+			<td class="text green" ><input type="submit" class="button2 text green " name="UPDATE" ></td> 	<!-- Need to write code for this -->
 			<td class="text purple" ><a href="#" >VIEW</a></td>
 			<td class="text orange" ><a href="plan.php" >VIEW</a></td>
 			<td class="text purple" ><a href="schedule.php" >VIEW</a></td>
@@ -163,5 +165,6 @@
 		</tr>
 	</table>
   </div>
+ </form>
  </body>
 </html>
