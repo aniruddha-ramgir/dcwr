@@ -1,5 +1,5 @@
 <?php
-	include("connection.php");
+	include("connection.php");			//Remember to add REASONS part.
 	include("logged_in.php");
 	$id=$_SESSION['user_id'];
 	$login  = 'SELECT * FROM login where user_id = '. $_SESSION['user_id']. ' ';
@@ -141,7 +141,7 @@
 						}
 			?>
 			<th class='text'><input type="text" name="topic"  class='textBox' required="required"></th>
-			<td class="text green" ><input name="submit" type="submit"  class="button1 text green " ></td>
+			<td class="text green" ><input name="submit" value="SUBMIT" type="submit"  class="button1 text green " ></td>
 		
 		</table>
 	</div>

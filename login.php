@@ -1,8 +1,7 @@
 <?php
 	function validate(){
 		include("connection.php");
-		$sql= " SELECT * FROM login where user_name = '$_POST[user]' AND pass = '$_POST[pass]'";
-		$result = $conn->query($sql);
+		$result = $conn->query(" SELECT * FROM login where user_name = '$_POST[user]' AND pass = '$_POST[pass]'");
 		if(!empty($row = $result->fetch_assoc())){
 			$_SESSION['logged_in']=1;
 			$_SESSION['user_id'] = $row['user_id'];
@@ -23,8 +22,9 @@
 			//session_unset();
 			//session_destroy(); 
 			$conn->close();
-			die();
 			echo "<script type='text/javascript'>alert('Incorrect Username and/or password')</script>";
+			//header('Location: login.php'); //Incorrect password message is not being displayed if this line executes
+			die();
 		}
 	}
 	if(isset($_POST['submit']))

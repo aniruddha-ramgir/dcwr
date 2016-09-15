@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 05, 2016 at 06:01 PM
+-- Generation Time: Sep 15, 2016 at 02:34 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -206,7 +206,7 @@ CREATE TABLE `reasons` (
   `date` date NOT NULL,
   `hour` int(4) NOT NULL,
   `event` int(5) NOT NULL DEFAULT '0',
-  `reason` text NOT NULL
+  `reason` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='0 - on course, 1 - delayed, 2- substituted, etc';
 
 -- --------------------------------------------------------
@@ -296,9 +296,9 @@ INSERT INTO `reports_topic_data` (`dcwr_id`, `date`, `1H`, `2H`, `3H`, `4H`, `5H
 (1, '2016-08-31', 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'Design Patterns', 'lunch', 'Big Data', 'Information Retrieval Systems', 'club Activity', 0, 0, 0),
 (1, '2016-09-01', 'Cloud Computing', 'DWDM', 'DWDM', 'Big Data', 'lunch', 'Cloud Computing', 'Design Patterns', 'club Activity', 0, 0, 0),
 (1, '2016-09-02', 'Cloud Computing', 'Cloud Computing', 'Information Retrieval Systems', 'Design Patterns', 'lunch', 'Linux Programming', 'Big Data', 'club Activity', 0, 0, 0),
-(1, '2016-09-03', 'DWDM', 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'lunch', 'Big Data', 'Cloud Computing', 'club Activity', 0, 0, 0),
-(1, '2016-09-04', 'DWDM LAB', 'DWDM LAB', 'DWDM LAB', 'Linux Programming', 'lunch', 'Cloud COmputing', 'DWDM', 'club Activity', 0, 0, 0),
-(1, '2016-09-05', 'Cloud Computing', 'Big Data', 'Information Retrieval Systems', 'DWDM', 'lunch', 'Information Retrieval Systems', 'Big Data', 'club Activity', 0, 0, 0);
+(1, '2016-09-03', 'DWDM', 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'lunch', 'Big Data', 'Cloud Computing', 'club Activity', 0, 1, 1),
+(1, '2016-09-04', 'DWDM LAB', 'DWDM LAB', 'DWDM LAB', 'Linux Programming', 'lunch', 'Cloud COmputing', 'DWDM', 'club Activity', 0, 1, 1),
+(1, '2016-09-05', 'Cloud Computing', 'Big Data', 'Information Retrieval Systems', 'DWDM', 'lunch', 'Information Retrieval Systems', 'Big Data', 'club Activity', 0, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -501,7 +501,7 @@ ALTER TABLE `plans`
 -- AUTO_INCREMENT for table `reports`
 --
 ALTER TABLE `reports`
-  MODIFY `dcwr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `dcwr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `sections`
 --

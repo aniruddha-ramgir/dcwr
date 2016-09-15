@@ -57,6 +57,7 @@ body {
 table {
   font-family: "Segoe UI", Helvetica;
   color: #efefef;
+  overflow-x:auto
 }
 table tr:nth-child(2n) {
   background: #eff0f1;
@@ -266,7 +267,7 @@ a:link, a:visited {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 20px;
+    font-size: 15px;
 	font-weight: 300;
     margin: 4px 2px;
     cursor: pointer;
