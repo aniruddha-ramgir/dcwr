@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 15, 2016 at 02:34 PM
+-- Generation Time: Sep 18, 2016 at 07:57 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -205,9 +205,19 @@ CREATE TABLE `reasons` (
   `dcwr_id` int(15) NOT NULL,
   `date` date NOT NULL,
   `hour` int(4) NOT NULL,
-  `event` int(5) NOT NULL DEFAULT '0',
+  `event` text NOT NULL,
   `reason` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='0 - on course, 1 - delayed, 2- substituted, etc';
+
+--
+-- Dumping data for table `reasons`
+--
+
+INSERT INTO `reasons` (`dcwr_id`, `date`, `hour`, `event`, `reason`) VALUES
+(1, '2016-09-01', 1, 'Substituted', ''),
+(1, '2016-09-01', 2, 'On Track', NULL),
+(1, '2016-09-01', 3, 'Cancelled', NULL),
+(1, '2016-09-01', 4, 'Delayed', NULL);
 
 -- --------------------------------------------------------
 
@@ -258,8 +268,8 @@ INSERT INTO `reports_subject_data` (`dcwr_id`, `date`, `1H`, `2H`, `3H`, `4H`, `
 (1, '2016-08-29', 'Cloud Computing', 'Cloud Computing', 'Information Retrieval Systems', 'Design Patterns', 'lunch', 'Linux Programming', 'Big Data', 'club Activity'),
 (1, '2016-08-30', 'Cloud Computing', 'DWDM', 'DWDM', 'Big Data', 'lunch', 'Cloud Computing', 'Design Patterns', 'club Activity'),
 (1, '2016-08-31', 'DWDM', 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'lunch', 'Big Data', 'Cloud Computing', 'club Activity'),
-(1, '2016-09-01', 'DWDM LAB', 'DWDM LAB', 'DWDM LAB', 'Linux Programming', 'lunch', 'Cloud COmputing', 'DWDM', 'club Activity'),
-(1, '2016-09-02', 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'Design Patterns', 'lunch', 'Big Data', 'Information Retrieval Systems', 'club Activity'),
+(1, '2016-09-01', 'ELECTIVE2', 'DWDM LAB', 'DWDM LAB', 'Linux Programming', 'lunch', 'Cloud COmputing', 'DWDM', 'club Activity'),
+(1, '2016-09-02', 'Design Patterns', 'ELECTIVE2', 'ELECTIVE2', 'Design Patterns', 'lunch', 'Big Data', 'Information Retrieval Systems', 'club Activity'),
 (1, '2016-09-03', 'Cloud Computing', 'Big Data', 'Information Retrieval Systems', 'DWDM', 'lunch', 'Information Retrieval Systems', 'Big Data', 'club Activity'),
 (1, '2016-09-04', 'Design Patterns', 'Big Data', 'Information Retrieval Systems', 'Cloud Computing', 'lunch', 'Linux Programming', 'Linux Programming', 'club Activity'),
 (1, '2016-09-05', 'Big Data', 'Design Patterns', 'Cloud Computing', 'Cloud Computing', 'lunch', 'Design Patterns', 'dbms', 'club Activity');
@@ -294,8 +304,8 @@ INSERT INTO `reports_topic_data` (`dcwr_id`, `date`, `1H`, `2H`, `3H`, `4H`, `5H
 (1, '2016-08-29', 'Design Patterns', 'Big Data', 'Information Retrieval Systems', 'Cloud Computing', 'lunch', 'Linux Programming', 'Linux Programming', 'club Activity', 0, 0, 0),
 (1, '2016-08-30', 'Big Data', 'Design Patterns', 'Cloud Computing', 'Cloud Computing', 'lunch', 'Design Patterns', 'dbms', 'club Activity', 0, 0, 0),
 (1, '2016-08-31', 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'Design Patterns', 'lunch', 'Big Data', 'Information Retrieval Systems', 'club Activity', 0, 0, 0),
-(1, '2016-09-01', 'Cloud Computing', 'DWDM', 'DWDM', 'Big Data', 'lunch', 'Cloud Computing', 'Design Patterns', 'club Activity', 0, 0, 0),
-(1, '2016-09-02', 'Cloud Computing', 'Cloud Computing', 'Information Retrieval Systems', 'Design Patterns', 'lunch', 'Linux Programming', 'Big Data', 'club Activity', 0, 0, 0),
+(1, '2016-09-01', 'eed', 'DWDM', 'DWDM', 'Big Data', 'lunch', 'Cloud Computing', 'Design Patterns', 'club Activity', 0, 0, 0),
+(1, '2016-09-02', 'j', 'Test2', 'Test3', 'Design Patterns', 'lunch', 'Linux Programming', 'Big Data', 'club Activity', 0, 0, 0),
 (1, '2016-09-03', 'DWDM', 'Information Retrieval Systems', 'Cloud Computing', 'Design Patterns', 'lunch', 'Big Data', 'Cloud Computing', 'club Activity', 0, 1, 1),
 (1, '2016-09-04', 'DWDM LAB', 'DWDM LAB', 'DWDM LAB', 'Linux Programming', 'lunch', 'Cloud COmputing', 'DWDM', 'club Activity', 0, 1, 1),
 (1, '2016-09-05', 'Cloud Computing', 'Big Data', 'Information Retrieval Systems', 'DWDM', 'lunch', 'Information Retrieval Systems', 'Big Data', 'club Activity', 0, 1, 1);
@@ -436,7 +446,7 @@ ALTER TABLE `plans_topic_data`
 -- Indexes for table `reasons`
 --
 ALTER TABLE `reasons`
-  ADD PRIMARY KEY (`dcwr_id`);
+  ADD PRIMARY KEY (`dcwr_id`,`date`,`hour`);
 
 --
 -- Indexes for table `reports`

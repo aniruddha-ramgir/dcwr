@@ -28,6 +28,10 @@
   color: #efefef;
   background: #f39c12;
 }
+.yellow {
+  color: #efefef;
+  background: #FFFF00;
+}
 
 .text {
   font-weight: 300;
@@ -281,8 +285,8 @@ a:link, a:visited {
     box-shadow: 0 0 5px #DDD inset; 
     color: #666; 
     outline: none; 
-    height:55px; 
-    width: 230x; 
+    height: 100%;
+	width: 100%;
     display: inline-block;
     font-size: 20px;
 	font-weight: 300;

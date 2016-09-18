@@ -34,24 +34,28 @@
 		$sql1 	= 	$conn->query(" SELECT * FROM `reports_topic_data` WHERE date = '" . $_POST["date"] . "' and dcwr_id = " . $_SESSION['dcwr_id'] . " ");
 		$sql2 	= 	$conn->query(" SELECT * FROM `reports_subject_data` WHERE date = '" . $_POST["date"] . "' and dcwr_id = " . $_SESSION['dcwr_id'] . " ");
 		if( !empty( $row1 = $sql1->fetch_assoc() ) | !empty( $row2 = $sql2->fetch_assoc() ) ){ //check if record already exists
-			if( !($row1['Incharge']==0) ){ //check if Incharge has signed
+			if( !($row1['Incharge']==0) ){ 		//check if Class Incharge has already signed
 				echo "<script type='text/javascript'>alert('Record has already been approved by the Class Incharge. Cannot update now.')</script>";
-				header('Location: dcwr_entry.php');
-				exit();
 			}
 			else{
-				$update1	=	$conn->query('UPDATE `reports_subject_data` SET `' .$_POST["hour"]. '` = "' .$_POST["subject"]. '" WHERE `reports_subject_data`.`dcwr_id` = ' . $_SESSION['dcwr_id'] . ' AND `reports_subject_data`.`date` = "' .  $_POST["date"] . '"'); //update subject
-				$update2	=	$conn->query('UPDATE `reports_topic_data` SET `' .$_POST["hour"]. '` = "' .$_POST["topic"]. '" WHERE `reports_topic_data`.`dcwr_id` = ' . $_SESSION['dcwr_id'] . ' AND `reports_topic_data`.`date` = "' .  $_POST["date"] . '"');	//update topic
-				header('Location: dcwr_entry.php');
-				exit();
+				$conn->query('UPDATE `reports_subject_data` SET `' .$_POST["hour"]. 'H` = "' .$_POST["subject"]. '" WHERE `reports_subject_data`.`dcwr_id` = ' . $_SESSION['dcwr_id'] . ' AND `reports_subject_data`.`date` = "' .  $_POST["date"] . '"'); //update subject
+				$conn->query('UPDATE `reports_topic_data` SET `' .$_POST["hour"]. 'H` = "' .$_POST["topic"]. '" WHERE `reports_topic_data`.`dcwr_id` = ' . $_SESSION['dcwr_id'] . ' AND `reports_topic_data`.`date` = "' .  $_POST["date"] . '"');	//update topic
 			}
 		}
-		else{
-			$create1 	= 	$conn->query('INSERT INTO `reports_subject_data` (`dcwr_id`, `date`, `'.$_POST["hour"].'`)  VALUES (' . $_SESSION['dcwr_id'] . ',"' .  $_POST["date"] . '","' .$_POST["subject"].'" )'); //Adding subjects
-			$create2 	= 	$conn->query('INSERT INTO `reports_topic_data` (`dcwr_id`, `date`, `'.$_POST["hour"].'`)  VALUES (' . $_SESSION['dcwr_id'] . ',"' .  $_POST["date"] . '","' .$_POST["topic"].'" )');	//Adding topics
-			header('Location: dcwr_entry.php');
-			exit();
+		else{ //create new record if it does not exist.
+			$conn->query('INSERT INTO `reports_subject_data` (`dcwr_id`, `date`, `'.$_POST["hour"].'H`)  VALUES (' . $_SESSION['dcwr_id'] . ',"' .  $_POST["date"] . '","' .$_POST["subject"].'" )'); //Adding subjects
+			$conn->query('INSERT INTO `reports_topic_data` (`dcwr_id`, `date`, `'.$_POST["hour"].'H`)  VALUES (' . $_SESSION['dcwr_id'] . ',"' .  $_POST["date"] . '","' .$_POST["topic"].'" )');	//Adding topics
 		}
+		$sql1 	= 	$conn->query(" SELECT * FROM `reasons` WHERE date = '" . $_POST["date"] . "' and (dcwr_id = " . $_SESSION['dcwr_id'] . " and hour =" .$_POST["hour"]. ") ");
+		if( !empty( $row1 = $sql1->fetch_assoc() ) ){ //check if record already exists
+			$conn->query('UPDATE `reasons` SET `event` = "' .$_POST["event"]. '" WHERE `reasons`.`dcwr_id` = ' . $_SESSION['dcwr_id'] . ' AND (`reasons`.`date` = "' .  $_POST["date"] . '" AND `reasons`.`hour` =' .$_POST["hour"]. ')');
+			$conn->query('UPDATE `reasons` SET `reason` = "' .$_POST["reason"]. '" WHERE `reasons`.`dcwr_id` = ' . $_SESSION['dcwr_id'] . ' AND (`reasons`.`date` = "' .  $_POST["date"] . '" AND `reasons`.`hour` =' .$_POST["hour"]. ')');
+		}
+		else{ 	//create new record for REASON and EVENT if it does not exist.
+			$conn->query('INSERT INTO `reasons` (`dcwr_id`, `date`, `hour`, `event`, `reason`)  VALUES (' . $_SESSION['dcwr_id'] . ',"' .  $_POST["date"] . '",' .$_POST["hour"].',"' .$_POST["event"].'","' .$_POST["reason"].'" )'); 
+		}
+		header('Location: dcwr_entry.php');
+		exit();
 	}
 	if(isset($_POST['submit']))
 	{
@@ -98,6 +102,7 @@
 				<th>Date</th>
 				<th>Hour</th>
 				<th>Event</th>
+				<th>Cause</th>
 				<th>Subject</th>
 				<th>Topic</th>
 				<th>SUBMIT</th>
@@ -108,14 +113,14 @@
 			<td class='text'><input class="select-style" type="date" style=" font-size: 1.3rem" name="date" min="2016-06-02" max="2016-12-20"></td> 
 			<th>
 				<select class="select-style" name="hour">
-					<option value="1H">Hour 1</option>
-					<option value="2H">Hour 2</option>
-					<option value="3H">Hour 3</option>
-					<option value="4H">Hour 4</option>
-					<option value="5H">Hour 5</option>
-					<option value="6H">Hour 6</option>
-					<option value="7H">Hour 7</option>
-					<option value="8H">Hour 8</option>
+					<option value="1">Hour 1</option>
+					<option value="2">Hour 2</option>
+					<option value="3">Hour 3</option>
+					<option value="4">Hour 4</option>
+					<option value="5">Hour 5</option>
+					<option value="6">Hour 6</option>
+					<option value="7">Hour 7</option>
+					<option value="8">Hour 8</option>
 				</select>
 			</th>
 			<th class='text'>  <!-- Event. -->
@@ -123,24 +128,26 @@
 					<option value="On Track">On track</option>
 					<option value="Substituted">Subsituted</option>
 					<option value="Delayed">Delayed</option>
+					<option value="Cancelled">Cancelled</option>
 				</select>
 			</th>
-	 	
-			<?php //Extract subject list from Subject list table
+			<th class='text'><input type="text" name="reason" placeholder="enter cause" class='textBox'></th>
+			<?php 	//Extract subject list from Subject list table
 					$sql = $conn->query(" SELECT * FROM `subject_list` WHERE plan_id = " . $_SESSION['plan_id'] . " "); //GET ALL
 						if( !empty( $row1 = $sql->fetch_assoc() ) ){
 							echo "<th class='text' >"; 
 								echo '<select class="select-style" name="subject">';
 									for($count=1;$count<10;$count++){ //Go through all subjects
 										if(($sub = $row1['SUBJECT'.$count.''])!=NULL){  //display only if its not NULL
-										echo '<option value="' .$sub. '">' . ($sub) . '</option>'; //$row1['SUBJECT'. $count . '']
+											echo '<option value="' .$sub. '">' . ($sub) . '</option>'; //$row1['SUBJECT'. $count . '']
 										}
 									}
+									echo '<option value="NULL">NULL</option>'; //additional option to denote that no classes were conduncted
 								echo "</select>";
 						echo "</th>";
 						}
 			?>
-			<th class='text'><input type="text" name="topic"  class='textBox' required="required"></th>
+			<th class='text'><input type="text" name="topic" placeholder="enter topic" class='textBox' required="required"></th>
 			<td class="text green" ><input name="submit" value="SUBMIT" type="submit"  class="button1 text green " ></td>
 		
 		</table>

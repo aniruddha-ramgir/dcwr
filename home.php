@@ -128,28 +128,33 @@
 					$sql2 = $conn->query(" SELECT * FROM `reports_subject_data` WHERE date = '" . $dateString . "' and dcwr_id = " . $_SESSION['dcwr_id'] . " ");
 					if( !empty( $row1 = $sql1->fetch_assoc() ) && !empty( $row2 = $sql2->fetch_assoc() ) ){
 						echo "<tr>";
-						if( !($row1['Admin']==0) ){
-							echo "<td class='days ' >".$startDate->format("D"). "</td>";
-							echo "<td class='info ' data-tooltip=' ".($row2['1H'])." '>".($row1['1H'])."</td>";
-							echo "<td class='info ' data-tooltip=' ".($row2['2H'])." '>".($row1['2H'])."</td>";
-							echo "<td class='info ' data-tooltip=' ".($row2['3H'])." '>".($row1['3H'])."</td>";
-							echo "<td class='info ' data-tooltip=' ".($row2['4H'])." '>".($row1['4H'])."</td>";
-							echo "<td class='info ' data-tooltip=' ".($row2['5H'])." '>".($row1['5H'])."</td>";
-							echo "<td class='info ' data-tooltip=' ".($row2['6H'])." '>".($row1['6H'])."</td>";
-							echo "<td class='info ' data-tooltip=' ".($row2['7H'])." '>".($row1['7H'])."</td>";
-							echo "<td class='info ' data-tooltip=' ".($row2['8H'])." '>".($row1['8H'])."</td>";
+						echo "<td class='days ' >".$startDate->format('Y-m-d'). "</td>";
+						for($i=1;$i<9;$i++){
+							$j="$i";
+							$j.="H";
+							$sql3 = $conn->query(" SELECT * FROM `reasons` WHERE date = '" . $dateString . "' and (dcwr_id = " . $_SESSION['dcwr_id'] . " and hour =" .$i. ") ");
+							if( !empty( $row3 = $sql3->fetch_assoc() ) ){
+								switch ($row3['event']) { //code for COLOURING cells
+									case "On Track":
+										echo "<td class='info ' data-tooltip=' ".($row2[$j])." '>".($row1[$j])."</td>";
+										break;
+									case "Substituted":
+										echo "<td class='info yellow' data-tooltip=' ".($row2[$j])." '>".($row1[$j])."</td>";
+										break;
+									case "Delayed":
+										echo "<td class='info orange' data-tooltip=' ".($row2[$j])." '>".($row1[$j])."</td>";
+										break;
+									case "Cancelled":
+										echo "<td class='info red' data-tooltip=' ".($row2[$j])." '>".($row1[$j])."</td>";
+										break;
+									default: //useless but satefy feature.
+										echo "<td class='info ' data-tooltip=' ".($row2[$j])." '>".($row1[$j])."</td>";	
+								}
+							}									
+							else{ //in case reason does not exist
+								echo "<td class='info ' data-tooltip=' ".($row2[$j])." '>".($row1[$j])."</td>";
+							}
 						}
-						else{
-							echo "<td class='days'>".$startDate->format('Y-m-d'). "</td>";
-							echo "<td class='info ' contenteditable='true' class='text' data-tooltip=' ".($row2['1H'])." '>".($row1['1H'])."</td>";
-							echo "<td class='info ' contenteditable='true' class='text' data-tooltip=' ".($row2['2H'])." '>".($row1['2H'])."</td>";
-							echo "<td class='info ' contenteditable='true' class='text' data-tooltip=' ".($row2['3H'])." '>".($row1['3H'])."</td>";
-							echo "<td class='info ' contenteditable='true' class='text' data-tooltip=' ".($row2['4H'])." '>".($row1['4H'])."</td>";
-							echo "<td class='info ' contenteditable='true' class='text' data-tooltip=' ".($row2['5H'])." '>".($row1['5H'])."</td>";
-							echo "<td class='info ' contenteditable='true' class='text' data-tooltip=' ".($row2['6H'])." '>".($row1['6H'])."</td>";
-							echo "<td class='info ' contenteditable='true' class='text' data-tooltip=' ".($row2['7H'])." '>".($row1['7H'])."</td>";
-							echo "<td class='info ' contenteditable='true' class='text' data-tooltip=' ".($row2['8H'])." '>".($row1['8H'])."</td>";
-						}	
 						echo "</tr>";
 					}
 					else if($ErrorCount<2){ //Tries to fetch twice. Enters "IF" only if the number of failures is less that 2 (0 and 1)
@@ -158,9 +163,9 @@
 						continue;
 					}
 					else{
-						echo "<script type='text/javascript'>alert('Fetching certain data has failed. (Holidays/Missing data)')</script>";
-						break;
-					}
+							echo "<script type='text/javascript'>alert('Fetching certain data has failed. (Holidays/Missing data)')</script>";
+							break;
+						}
 					$count++;
 					$startDate = $startDate->add(new DateInterval('P1D'));
 				}
