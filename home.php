@@ -163,7 +163,7 @@
 						continue;
 					}
 					else{
-							echo "<script type='text/javascript'>alert('Fetching certain data has failed. (Holidays/Missing data)')</script>";
+							echo "<script type='text/javascript'>alert('Unable to fetch complete report. (Holidays/Missing data)')</script>";
 							break;
 						}
 					$count++;
@@ -180,7 +180,7 @@
 			<th></th>
 			<th>Select Date</th>
 			<th>DCWR</th>
-			<th>ANALYSIS</th>
+		<!--	<th>ANALYSIS</th> -->
 			<th>LESSON PLAN</th>
 			<th>SCHEDULE</th>
 			<th>SUBMIT</th>
@@ -189,7 +189,7 @@
 			<td class='days'></td>
 			<td class='text'><input type="date" style="font-size: 1.3rem" name="start_date" min="2016-06-02" max="2016-12-20"></td> 
 			<td class="text green" ><input type="submit" value="UPDATE" class="button2 text green " name="update" ></td> 	<!-- uses GET to attach date to URL -->
-			<td class="text purple" ><a href="#" >VIEW</a></td>
+		<!--	<td class="text purple" ><a href="analysis.html" >VIEW</a></td> -->
 			<td class="text orange" ><a href="plan.php" >VIEW</a></td>
 			<td class="text purple" ><a href="schedule.php" >VIEW</a></td>
 			<td class="text green" ><label for="submit-form" class="button2 text green " >SUBMIT</label></td>

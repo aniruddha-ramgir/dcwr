@@ -1,4 +1,7 @@
 <?php
+	if(isset($_POST['submit'])){
+			validate();
+	}
 	function validate(){
 		include("connection.php");
 		$result = $conn->query(" SELECT * FROM login where user_name = '$_POST[user]' AND pass = '$_POST[pass]'");
@@ -6,31 +9,33 @@
 			$_SESSION['logged_in']=1;
 			$_SESSION['user_id'] = $row['user_id'];
 			if($row['type_id']=='A'){
+				unset($_GET['loginFailed']);
 				header('Location: admin_info.php');
 				exit();
 			}
 			else if($row['type_id']=='C'){
+				unset($_GET['loginFailed']);
 				header('Location: incharge_process.php');
 				exit();
 			}
 			else{
+				unset($_GET['loginFailed']);
 				header('Location: incharge_process.php');
 				exit();
 			}
 		}
 		else {
-			//session_unset();
-			//session_destroy(); 
+			session_unset();
+			session_destroy(); 
 			$conn->close();
-			echo "<script type='text/javascript'>alert('Incorrect Username and/or password')</script>";
-			//header('Location: login.php'); //Incorrect password message is not being displayed if this line executes
+			//echo "<script type='text/javascript'>alert('Incorrect Username and/or password')</script>";
+			header('Location: login.php?loginFailed=true'); //Incorrect password message is not being displayed if this line executes
 			die();
 		}
 	}
-	if(isset($_POST['submit']))
-		{
-			validate();
-		} 
+	if (isset($_GET['loginFailed']) && $_GET["loginFailed"]==true){
+		echo "<script type='text/javascript'>alert('Incorrect Username and/or password')</script>";
+	}
 ?>
 <!DOCTYPE html>
 <html >
