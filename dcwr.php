@@ -6,7 +6,7 @@
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>Lesson Plan</title>
+    <title>DCWR</title>
         <link rel="stylesheet" href="css/home.css">
   </head>
   <body>
@@ -92,7 +92,7 @@
 			<th>e-DCWR</th>
 		</tr>
 		<tr>
-			<td class='text'><input name="date" type="date" style=" font-size: 1.3rem" min="2016-06-02" max="2016-12-20"></td>
+			<td class='text'><input name="date" type="date" style=" font-size: 1.3rem"></td>
 			<td class="text green" ><input type="submit" value="UPDATE" class="button2 text green " name="update" ></td>
 			<td class="text red" ><a href="javascript:history.go(-1)" >Go back</a></td> <!-- Goes back to actual previous page -->
 		</tr>

@@ -1,5 +1,5 @@
 <?php
-	include("connection.php");			//Give colours based on REASONS table
+	include("connection.php");			
 	include("logged_in.php");
 	$id=$_SESSION['user_id'];
 	$result = $conn->query('SELECT * FROM login where user_id = '. $_SESSION['user_id']. ' ');
@@ -183,16 +183,18 @@
 		<!--	<th>ANALYSIS</th> -->
 			<th>LESSON PLAN</th>
 			<th>SCHEDULE</th>
-			<th>SUBMIT</th>
+			<th>APPROVE</th>
+			<th>REJECT</th>
 		</tr>
 		<tr>
 			<td class='days'></td>
-			<td class='text'><input type="date" style="font-size: 1.3rem" name="start_date" min="2016-06-02" max="2016-12-20"></td> 
+			<td class='text'><input type="date" style="font-size: 1.3rem" name="start_date" ></td> 
 			<td class="text green" ><input type="submit" value="UPDATE" class="button2 text green " name="update" ></td> 	<!-- uses GET to attach date to URL -->
 		<!--	<td class="text purple" ><a href="analysis.html" >VIEW</a></td> -->
 			<td class="text orange" ><a href="plan.php" >VIEW</a></td>
 			<td class="text purple" ><a href="schedule.php" >VIEW</a></td>
-			<td class="text green" ><label for="submit-form" class="button2 text green " >SUBMIT</label></td>
+			<td class="text green" ><label for="submit-form" class="button2 text green " >APPROVE</label></td>
+			<td class="text red" ><a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=someone@example.com&su=Inconsistencies%20in%20DCWR&body=BODY&tf=1" target="_blank" >REJECT</a></td>
 		</tr>
 	</table>
   </div>

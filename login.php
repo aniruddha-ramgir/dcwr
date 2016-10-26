@@ -29,19 +29,25 @@
 			session_destroy(); 
 			$conn->close();
 			//echo "<script type='text/javascript'>alert('Incorrect Username and/or password')</script>";
-			header('Location: login.php?loginFailed=true'); //Incorrect password message is not being displayed if this line executes
+			header('Location: login.php?loginFailed=incorrect'); //Incorrect password message is not being displayed if this line executes
 			die();
 		}
 	}
-	if (isset($_GET['loginFailed']) && $_GET["loginFailed"]==true){
-		echo "<script type='text/javascript'>alert('Incorrect Username and/or password')</script>";
+	if (isset($_GET['loginFailed'])){
+		if($_GET["loginFailed"]=="incorrect"){
+			echo "<script type='text/javascript'>alert('Incorrect Username and/or password')</script>";
+		}
+		if($_GET["loginFailed"]=="AuthFailed"){
+			echo "<script type='text/javascript'>alert('Authorization Failed. You are not allowed to access the current DCWR.')</script>";
+		}
+		
 	}
 ?>
 <!DOCTYPE html>
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>eDCWR</title>
+    <title>Login to eDCWR</title>
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
 		<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>

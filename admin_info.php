@@ -86,13 +86,25 @@
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>eDCWR</title>
+    <title>Admin Page</title>
+		<link rel="stylesheet" href="css/hamburger.css">
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
 		<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
 		<link rel="stylesheet" href="css/login.css">
 </head>
-<body>    
+<body>   
+<header>
+  <button class="hamburger">&#9776;</button>
+  <button class="cross">&#735;</button>
+</header>
+
+<div class="menu">
+  <ul>
+    <a href="setup.php"><li>SETUP</li></a>
+    <a href="logout.php"><li>LOG OUT</li></a>
+  </ul>
+</div>  
 <!-- Mixins-->
 <!-- Pen Title-->
 <div class="pen-title">
@@ -167,5 +179,6 @@
 </div>
 <script src='js/button.js'></script>
  <script src="js/index.js"></script>
+ <script src='js/navbar_animate.js'></script>
   </body>
 </html>

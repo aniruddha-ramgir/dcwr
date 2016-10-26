@@ -42,7 +42,7 @@
 				$conn->query('UPDATE `reports_topic_data` SET `' .$_POST["hour"]. 'H` = "' .$_POST["topic"]. '" WHERE `reports_topic_data`.`dcwr_id` = ' . $_SESSION['dcwr_id'] . ' AND `reports_topic_data`.`date` = "' .  $_POST["date"] . '"');	//update topic
 			}
 		}
-		else{ //create new record if it does not exist.
+		else{ 					//create new record if it does not exist.
 			$conn->query('INSERT INTO `reports_subject_data` (`dcwr_id`, `date`, `'.$_POST["hour"].'H`)  VALUES (' . $_SESSION['dcwr_id'] . ',"' .  $_POST["date"] . '","' .$_POST["subject"].'" )'); //Adding subjects
 			$conn->query('INSERT INTO `reports_topic_data` (`dcwr_id`, `date`, `'.$_POST["hour"].'H`)  VALUES (' . $_SESSION['dcwr_id'] . ',"' .  $_POST["date"] . '","' .$_POST["topic"].'" )');	//Adding topics
 		}
@@ -51,7 +51,7 @@
 			$conn->query('UPDATE `reasons` SET `event` = "' .$_POST["event"]. '" WHERE `reasons`.`dcwr_id` = ' . $_SESSION['dcwr_id'] . ' AND (`reasons`.`date` = "' .  $_POST["date"] . '" AND `reasons`.`hour` =' .$_POST["hour"]. ')');
 			$conn->query('UPDATE `reasons` SET `reason` = "' .$_POST["reason"]. '" WHERE `reasons`.`dcwr_id` = ' . $_SESSION['dcwr_id'] . ' AND (`reasons`.`date` = "' .  $_POST["date"] . '" AND `reasons`.`hour` =' .$_POST["hour"]. ')');
 		}
-		else{ 	//create new record for REASON and EVENT if it does not exist.
+		else{ 					//create new record for REASON and EVENT if it does not exist.
 			$conn->query('INSERT INTO `reasons` (`dcwr_id`, `date`, `hour`, `event`, `reason`)  VALUES (' . $_SESSION['dcwr_id'] . ',"' .  $_POST["date"] . '",' .$_POST["hour"].',"' .$_POST["event"].'","' .$_POST["reason"].'" )'); 
 		}
 		header('Location: dcwr_entry.php');
@@ -108,48 +108,47 @@
 				<th>SUBMIT</th>
 			</tr>
 			<!-- Display rows for 8 hours. -->
-	 
-	
-			<td class='text'><input class="select-style" type="date" style=" font-size: 1.3rem" name="date" min="2016-06-02" max="2016-12-20"></td> 
-			<th>
-				<select class="select-style" name="hour">
-					<option value="1">Hour 1</option>
-					<option value="2">Hour 2</option>
-					<option value="3">Hour 3</option>
-					<option value="4">Hour 4</option>
-					<option value="5">Hour 5</option>
-					<option value="6">Hour 6</option>
-					<option value="7">Hour 7</option>
-					<option value="8">Hour 8</option>
-				</select>
-			</th>
-			<th class='text'>  <!-- Event. -->
-				<select class="select-style" name="event">
-					<option value="On Track">On track</option>
-					<option value="Substituted">Subsituted</option>
-					<option value="Delayed">Delayed</option>
-					<option value="Cancelled">Cancelled</option>
-				</select>
-			</th>
-			<th class='text'><input type="text" name="reason" placeholder="enter cause" class='textBox'></th>
-			<?php 	//Extract subject list from Subject list table
-					$sql = $conn->query(" SELECT * FROM `subject_list` WHERE plan_id = " . $_SESSION['plan_id'] . " "); //GET ALL
-						if( !empty( $row1 = $sql->fetch_assoc() ) ){
-							echo "<th class='text' >"; 
-								echo '<select class="select-style" name="subject">';
-									for($count=1;$count<10;$count++){ //Go through all subjects
-										if(($sub = $row1['SUBJECT'.$count.''])!=NULL){  //display only if its not NULL
-											echo '<option value="' .$sub. '">' . ($sub) . '</option>'; //$row1['SUBJECT'. $count . '']
+			<tr>
+				<td class='text'><input name="date" class="select-style" type="date" style=" font-size: 1.3rem" ></td> 
+				<th>
+					<select class="select-style" name="hour">
+						<option value="1">Hour 1</option>
+						<option value="2">Hour 2</option>
+						<option value="3">Hour 3</option>
+						<option value="4">Hour 4</option>
+						<option value="5">Hour 5</option>
+						<option value="6">Hour 6</option>
+						<option value="7">Hour 7</option>
+						<option value="8">Hour 8</option>
+					</select>
+				</th>
+				<th class='text'>  <!-- Event. -->
+					<select class="select-style" name="event">
+						<option value="On Track">On track</option>
+						<option value="Substituted">Subsituted</option>
+						<option value="Delayed">Delayed</option>
+						<option value="Cancelled">Cancelled</option>
+					</select>
+				</th>
+				<th class='text'><input type="text" name="reason" placeholder="enter cause" class='textBox'></th>
+				<?php 	//Extract subject list from Subject list table
+						$sql = $conn->query(" SELECT * FROM `subject_list` WHERE plan_id = " . $_SESSION['plan_id'] . " "); //GET ALL
+							if( !empty( $row1 = $sql->fetch_assoc() ) ){
+								echo "<th class='text' >"; 
+									echo '<select class="select-style" name="subject">';
+										for($count=1;$count<10;$count++){ //Go through all subjects
+											if(($sub = $row1['SUBJECT'.$count.''])!=NULL){  //display only if its not NULL
+												echo '<option value="' .$sub. '">' . ($sub) . '</option>'; //$row1['SUBJECT'. $count . '']
+											}
 										}
-									}
-									echo '<option value="NULL">NULL</option>'; //additional option to denote that no classes were conduncted
-								echo "</select>";
-						echo "</th>";
-						}
-			?>
-			<th class='text'><input type="text" name="topic" placeholder="enter topic" class='textBox' required="required"></th>
-			<td class="text green" ><input name="submit" value="SUBMIT" type="submit"  class="button1 text green " ></td>
-		
+										echo '<option value="NULL">NULL</option>'; //additional option to denote that no classes were conduncted
+									echo "</select>";
+							echo "</th>";
+							}
+				?>
+				<th class='text'><input type="text" name="topic" placeholder="enter topic" class='textBox' required="required"></th>
+				<td class="text green" ><input name="submit" value="SUBMIT" type="submit"  class="button1 text green " ></td>
+			</tr>
 		</table>
 	</div>
 </form>

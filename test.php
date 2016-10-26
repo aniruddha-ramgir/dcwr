@@ -62,4 +62,6 @@ if( !($row1['Admin']==0) ){
 						echo "<script type='text/javascript'>alert('Record created sucessfully')</script>";
 					} */
 						
-?>
+
+
+	?>
